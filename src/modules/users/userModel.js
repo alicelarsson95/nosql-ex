@@ -21,7 +21,7 @@ const userSchema = new Schema(
       type: String,
       required: true,
       minlenght: 6,
-      maxlenght: 40,
+      maxlenght: 60,
       match: /^(?=.*[A-Z])(?=.*\d).+$/,
     },
     role: {
