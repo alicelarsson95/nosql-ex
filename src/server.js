@@ -1,18 +1,27 @@
-import express from 'express'
-import mongoose from 'mongoose'
-import dotenv from 'dotenv'
+import express from "express";
+import mongoose from "mongoose";
+import dotenv from "dotenv";
 
-dotenv.config()
+dotenv.config();
 
-const app = express()
-app.use(express.json())
+const app = express();
+app.use(express.json());
 
 const mongoUri = process.env.MONGO_URI;
-const port = 4000
+const port = 4000;
 
-mongoose
-.connect(mongoUri)
-.then(() => console.log("MongoDB connected"))
-.catch((err) => console.error("mongoDB error", err))
+async function runServer() {
+  try {
+    await mongoose.connect(mongoUri);
+    console.log("MongoDB connected");
 
-app.listen(port, () => console.log(`Servern körs på http://localhost:${port}`));
+    app.listen(port, () => {
+      console.log(`Server running at http://localhost:${port}`);
+    });
+  } catch (err) {
+    console.error(" MongoDB connection error:", err.message);
+    process.exit(1); 
+  }
+}
+
+runServer();
