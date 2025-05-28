@@ -20,7 +20,7 @@ const reviewSchema = new Schema(
     },
     comment: {
       type: String,
-      maxlenght: 500,
+      maxlength: 500,
     },
   },
   {

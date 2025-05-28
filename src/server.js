@@ -1,7 +1,8 @@
 import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
-
+import userRoutes from '../src/modules/users/userRoutes.js'
+import movieRoutes from '../src/modules/movies/movieRoutes.js'
 dotenv.config();
 
 const app = express();
@@ -14,6 +15,9 @@ async function runServer() {
   try {
     await mongoose.connect(mongoUri);
     console.log("MongoDB connected");
+
+    app.use('/', userRoutes);
+    app.use('/movies', movieRoutes);
 
     app.listen(port, () => {
       console.log(`Server running at http://localhost:${port}`);
