@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 import userRoutes from '../src/modules/users/userRoutes.js'
 import movieRoutes from '../src/modules/movies/movieRoutes.js'
+import reviewRoutes from '../src/modules/reviews/reviewRoutes.js'
 dotenv.config();
 
 const app = express();
@@ -18,6 +19,7 @@ async function runServer() {
 
     app.use('/', userRoutes);
     app.use('/movies', movieRoutes);
+    app.use('/reviews', reviewRoutes)
 
     app.listen(port, () => {
       console.log(`Server running at http://localhost:${port}`);

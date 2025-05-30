@@ -2,13 +2,12 @@ import User from "./userModel.js";
 import bcrypt from "bcryptjs";
 import { generateToken } from "../../utils/token.js";
 import { registerValidation } from "../../validation/userValidation.js";
+import { handleValidationError } from "../../utils/errorHandler.js";
 
 export const registerUser = async (req, res) => {
   try {
     const { error } = registerValidation.validate(req.body);
-    if (error) {
-      return res.status(400).json({ message: error.details[0].message });
-    }
+    if (error) return handleValidationError(res, error);
 
     const existingUser = await User.findOne({ email: req.body.email });
     if (existingUser) {

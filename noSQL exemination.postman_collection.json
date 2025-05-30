@@ -1,0 +1,536 @@
+{
+	"info": {
+		"_postman_id": "4cbf88de-1388-420c-9952-2e2de9f89f91",
+		"name": "noSQL exemination",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "43237590"
+	},
+	"item": [
+		{
+			"name": "/register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"username\": \"Dogs4life\",\r\n  \"email\": \"ilovedogs@hotmail.com\",\r\n  \"password\": \"Voffvoff123\",\r\n  \"role\": \"admin\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"register"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "/register error",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"username\": \"Dogs4life\",\r\n  \"email\": \"ilovedogs@hotmail.com\",\r\n  \"password\": \"voffvoff123\",\r\n  \"role\": \"admin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"register"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "117"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"75-VdZucIJd8HzgOIkqXjtTi+RCW+M\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 30 May 2025 08:58:19 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"\\\"password\\\" with value \\\"voffvoff123\\\" fails to match the required pattern: /^(?=.*[A-Z])(?=.*\\\\d).+$/\"\n}"
+				}
+			]
+		},
+		{
+			"name": "/login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n \"email\": \"ilovedogs@hotmail.com\",\r\n  \"password\": \"Voffvoff123\"\r\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/movies",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODM5NzM2NjM4YWY0YTVkMWRiODNiNmIiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NDg1OTU3NDQsImV4cCI6MTc0ODY4MjE0NH0.iRLbgxj2Mo3gdK3-_7lUWxvbm8jfOBkUdFpXp3BqBbQ",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"title\": \"Inception\",\r\n  \"director\": \"Christopher Nolan\",\r\n  \"releaseYear\": 2010,\r\n  \"genre\": \"Sci-Fi\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/movies",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"movies"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "/movies error",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODM5NzM2NjM4YWY0YTVkMWRiODNiNmIiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NDg1OTU3NDQsImV4cCI6MTc0ODY4MjE0NH0.iRLbgxj2Mo3gdK3-_7lUWxvbm8jfOBkUdFpXp3BqBbQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Inception\",\r\n  \"director\": \"Christopher Nolan\",\r\n  \"releaseYear\": 1800,\r\n  \"genre\": \"Sci-Fi\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/movies",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "67"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"43-W442/KAPnBkr79L7HZM8FVc8pd0\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 30 May 2025 09:18:01 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"\\\"releaseYear\\\" must be greater than or equal to 1878\"\n}"
+				}
+			]
+		},
+		{
+			"name": "/movies",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODM5NzM2NjM4YWY0YTVkMWRiODNiNmIiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NDg1OTU3NDQsImV4cCI6MTc0ODY4MjE0NH0.iRLbgxj2Mo3gdK3-_7lUWxvbm8jfOBkUdFpXp3BqBbQ",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:4000/movies",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"movies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/movies/:id",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODM5NzM2NjM4YWY0YTVkMWRiODNiNmIiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NDg1OTU3NDQsImV4cCI6MTc0ODY4MjE0NH0.iRLbgxj2Mo3gdK3-_7lUWxvbm8jfOBkUdFpXp3BqBbQ",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:4000/movies/6839786abfcaa399b93d5757",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"movies",
+						"6839786abfcaa399b93d5757"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/movies/:id",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODM5NzM2NjM4YWY0YTVkMWRiODNiNmIiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NDg1OTU3NDQsImV4cCI6MTc0ODY4MjE0NH0.iRLbgxj2Mo3gdK3-_7lUWxvbm8jfOBkUdFpXp3BqBbQ",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"The last dandelion extended\",\r\n    \"director\": \"Sid Sidsson\",\r\n    \"releaseYear\": 2025,\r\n    \"genre\": \"Action\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/movies/6839786abfcaa399b93d5757",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"movies",
+						"6839786abfcaa399b93d5757"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/movies/:id/reviews",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODM5NzM2NjM4YWY0YTVkMWRiODNiNmIiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NDg1OTU3NDQsImV4cCI6MTc0ODY4MjE0NH0.iRLbgxj2Mo3gdK3-_7lUWxvbm8jfOBkUdFpXp3BqBbQ",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "http://localhost:4000/movies/6836db9383650db7af0f6f87/reviews",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"movies",
+						"6836db9383650db7af0f6f87",
+						"reviews"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/movies/:id",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODM5NzM2NjM4YWY0YTVkMWRiODNiNmIiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NDg1OTU3NDQsImV4cCI6MTc0ODY4MjE0NH0.iRLbgxj2Mo3gdK3-_7lUWxvbm8jfOBkUdFpXp3BqBbQ",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:4000/movies/683977a7bfcaa399b93d5755",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"movies",
+						"683977a7bfcaa399b93d5755"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/reviews",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODM5NzM2NjM4YWY0YTVkMWRiODNiNmIiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NDg1OTU3NDQsImV4cCI6MTc0ODY4MjE0NH0.iRLbgxj2Mo3gdK3-_7lUWxvbm8jfOBkUdFpXp3BqBbQ",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"movieId\": \"6839786abfcaa399b93d5757\",\r\n  \"rating\": 4,\r\n  \"comment\": \"Otroligt skådespel!\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/reviews",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"reviews"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/reviews",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODM5NzM2NjM4YWY0YTVkMWRiODNiNmIiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NDg1OTU3NDQsImV4cCI6MTc0ODY4MjE0NH0.iRLbgxj2Mo3gdK3-_7lUWxvbm8jfOBkUdFpXp3BqBbQ",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:4000/reviews",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"reviews"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/reviews/:id",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODM5NzM2NjM4YWY0YTVkMWRiODNiNmIiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NDg1OTU3NDQsImV4cCI6MTc0ODY4MjE0NH0.iRLbgxj2Mo3gdK3-_7lUWxvbm8jfOBkUdFpXp3BqBbQ",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:4000/reviews/683815126feeb466a82c4456",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"reviews",
+						"683815126feeb466a82c4456"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/reviews/:id",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODM5NzM2NjM4YWY0YTVkMWRiODNiNmIiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NDg1OTU3NDQsImV4cCI6MTc0ODY4MjE0NH0.iRLbgxj2Mo3gdK3-_7lUWxvbm8jfOBkUdFpXp3BqBbQ",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"rating\": 5,\r\n  \"comment\": \"Jag har sett denna två gånger nu och är helt golvad!\",\r\n  \"movieId\": \"6839786abfcaa399b93d5757\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/reviews/6839898de0eb54c90979575b",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"reviews",
+						"6839898de0eb54c90979575b"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/reviews/:id",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODM5NzM2NjM4YWY0YTVkMWRiODNiNmIiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NDg1OTU3NDQsImV4cCI6MTc0ODY4MjE0NH0.iRLbgxj2Mo3gdK3-_7lUWxvbm8jfOBkUdFpXp3BqBbQ",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:4000/reviews/68398a381c1da684df4c0a6d",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"reviews",
+						"68398a381c1da684df4c0a6d"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

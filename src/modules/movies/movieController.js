@@ -1,13 +1,11 @@
 import Movie from "./movieModel.js";
 import { movieValidation } from "../../validation/movieValidation.js";
-
+import { handleValidationError } from "../../utils/errorHandler.js";
 
 export const createMovie = async (req, res) => {
   try {
     const { error } = movieValidation.validate(req.body);
-    if (error) {
-      return res.status(400).json({ message: error.details[0].message });
-    }
+    if (error) return handleValidationError(res, error);
 
     const newMovie = await Movie.create(req.body);
     res.status(201).json({
@@ -45,12 +43,9 @@ export const getMovieById = async (req, res) => {
 export const updateMovie = async (req, res) => {
   try {
     const { error } = movieValidation.validate(req.body);
-    if (error) {
-      return res.status(400).json({ message: error.details[0].message });
-    }
+    if (error) return handleValidationError(res, error);
 
     const updatedMovie = await Movie.findByIdAndUpdate(req.params.id, req.body, { new: true });
-
     if (!updatedMovie) {
       return res.status(404).json({ message: "Movie not found" });
     }
@@ -69,12 +64,11 @@ export const deleteMovie = async (req, res) => {
     const deletedMovie = await Movie.findByIdAndDelete(req.params.id);
 
     if (!deletedMovie) {
-      return res.status(404).json({ message: 'Movie not found' });
+      return res.status(404).json({ message: "Movie not found" });
     }
 
-    res.json({ message: 'Movie deleted successfully' });
+    res.json({ message: "Movie deleted successfully" });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
 };
-
