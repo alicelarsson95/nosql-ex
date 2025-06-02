@@ -1,5 +1,6 @@
 import jwt from "jsonwebtoken";
 
+// Kontrollerar att en giltig token finns och lägger användarinformation i req.user
 export const verifyToken = (req, res, next) => {
   const authHeader = req.headers.authorization;
 

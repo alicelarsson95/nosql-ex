@@ -1,5 +1,6 @@
 import mongoose, { Schema } from "mongoose";
 
+// Mongoose-schema för recensioner kopplade till filmer och användare
 const reviewSchema = new Schema(
   {
     movieId: {
@@ -28,6 +29,6 @@ const reviewSchema = new Schema(
   }
 )
 
+// Exporterar modellen för recensioner
 const Review = mongoose.model('Review', reviewSchema);
-
 export default Review;

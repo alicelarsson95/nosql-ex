@@ -1,5 +1,6 @@
 import mongoose, { Schema } from "mongoose";
 
+// Mongoose-schema för filmer
 const movieSchema = new Schema(
   {
     title: {
@@ -31,6 +32,7 @@ const movieSchema = new Schema(
   }
 );
 
+// Exporterar modellen för filmer
 const Movie = mongoose.model('Movie', movieSchema);
 
 export default Movie

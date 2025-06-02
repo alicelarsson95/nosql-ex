@@ -2,6 +2,7 @@ import Review from "./reviewModel.js";
 import { reviewValidation, updateReviewValidation } from "../../validation/reviewValidation.js";
 import { handleValidationError } from "../../utils/errorHandler.js";
 
+// Skapar en ny recension kopplad till en film och användare
 export const createReview = async (req, res) => {
   try {
     const { error } = reviewValidation.validate(req.body);
@@ -21,6 +22,7 @@ export const createReview = async (req, res) => {
   }
 };
 
+// Hämtar alla recensioner, inklusive filmens titel och användarnamn
 export const getAllReviews = async (req, res) => {
   try {
     const reviews = await Review.find().populate("movieId", "title").populate("userId", "username");
@@ -31,6 +33,7 @@ export const getAllReviews = async (req, res) => {
   }
 };
 
+// Hämtar en enskild recension baserat på dess ID
 export const getReviewById = async (req, res) => {
   try {
     const review = await Review.findById(req.params.id)
@@ -47,6 +50,7 @@ export const getReviewById = async (req, res) => {
   }
 };
 
+// Uppdaterar en recension 
 export const updateReview = async (req, res) => {
   try {
     const { error } = reviewValidation.validate(req.body);
@@ -76,6 +80,7 @@ export const updateReview = async (req, res) => {
   }
 };
 
+// Tar bort en recension
 export const deleteReview = async (req, res) => {
   try {
     const review = await Review.findById(req.params.id);
@@ -96,6 +101,7 @@ export const deleteReview = async (req, res) => {
   }
 };
 
+// Hämtar alla recensioner för en specifik film
 export const getReviewsForMovie = async (req, res) => {
   try {
     const reviews = await Review.find({ movieId: req.params.id }).populate("userId", "username");

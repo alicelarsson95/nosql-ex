@@ -1,5 +1,6 @@
 import Joi from 'joi';
 
+// Valideringsschema för registrering av ny användare
 export const registerValidation = Joi.object({
   username: Joi.string().min(3).max(25).required(),
   email: Joi.string().email().required(),

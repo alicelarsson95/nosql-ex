@@ -2,6 +2,7 @@ import Movie from "./movieModel.js";
 import { movieValidation } from "../../validation/movieValidation.js";
 import { handleValidationError } from "../../utils/errorHandler.js";
 
+// Skapar en ny film efter validering av inskickad data
 export const createMovie = async (req, res) => {
   try {
     const { error } = movieValidation.validate(req.body);
@@ -17,6 +18,7 @@ export const createMovie = async (req, res) => {
   }
 };
 
+// Hämtar alla filmer från databasen
 export const getAllMovies = async (req, res) => {
   try {
     const movies = await Movie.find();
@@ -26,6 +28,7 @@ export const getAllMovies = async (req, res) => {
   }
 };
 
+// Hämtar en specifik film baserat på dess ID
 export const getMovieById = async (req, res) => {
   try {
     const movie = await Movie.findById(req.params.id);
@@ -40,6 +43,8 @@ export const getMovieById = async (req, res) => {
   }
 };
 
+
+// Uppdaterar en film baserat på ID och ny data
 export const updateMovie = async (req, res) => {
   try {
     const { error } = movieValidation.validate(req.body);
@@ -59,6 +64,7 @@ export const updateMovie = async (req, res) => {
   }
 };
 
+// Tar bort en film från databasen baserat på ID
 export const deleteMovie = async (req, res) => {
   try {
     const deletedMovie = await Movie.findByIdAndDelete(req.params.id);

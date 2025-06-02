@@ -4,6 +4,7 @@ import { generateToken } from "../../utils/token.js";
 import { registerValidation } from "../../validation/userValidation.js";
 import { handleValidationError } from "../../utils/errorHandler.js";
 
+// Registrerar en ny användare efter validering och kontroll av e-post
 export const registerUser = async (req, res) => {
   try {
     const { error } = registerValidation.validate(req.body);
@@ -29,6 +30,7 @@ export const registerUser = async (req, res) => {
   }
 };
 
+// Loggar in användare genom att verifiera e-post och lösenord
 export const loginUser = async (req, res) => {
   try {
     const { email, password } = req.body;
